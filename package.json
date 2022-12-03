@@ -1,7 +1,7 @@
 {
   "name": "crowd-funding-page",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
@@ -11,7 +11,10 @@
   "dependencies": {
     "framer-motion": "^7.6.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-accessible-accordion": "^5.0.0",
+    "react-collapsible": "^2.10.0",
+    "react-dom": "^18.2.0",
+    "react-headless-accordion": "^1.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

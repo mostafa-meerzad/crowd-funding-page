@@ -1,0 +1,94 @@
+@use "./styles/mixins";
+@use "./styles/header";
+@use "./styles/variables";
+@use "./styles/intro";
+@use "./styles/info";
+@use "./styles/product";
+@use "./styles/backing-products";
+*{
+  box-sizing: border-box;
+  position: relative;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  font-family: Commissioner, sans-serif;
+  background-color: #fafafa;
+overflow-x: hidden;
+}
+.picture{
+  position: absolute;
+  //overflow-x: hidden;
+  //overflow: hidden;
+//border: 2px solid red;
+//  object-fit: contain;
+  padding: 0;
+  margin: 0;
+  &__mobile{
+    width: 100vw;
+    //padding: 0;
+    //margin: 0;
+    //left: 0;
+    //right: 0;
+    //border:2px solid red;
+//height: 100px;
+    max-height:max(40vh, 31rem);
+    object-fit: cover;
+
+    @media all and (min-width: variables.$desktop-view) {
+      max-height: max(38rem, 50vh);
+      //object-fit: ;
+    }
+  }
+  &_desktop{
+    width: 100%;
+    //object-fit: cover;
+    //max-height:max(45vh, 35rem);
+//border: 2px solid red;
+//    height: 40rem;
+  }
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cover{
+  background-image: linear-gradient(#000000a1 5%, #cccccc22 80%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main{
+  margin: min(36%, 10rem) auto 0;
+  //outline:2px solid red;
+  width:85%;
+  max-width: 40rem;
+  //padding: 5vw;
+  border-radius: variables.$border-radius;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  //& > div{
+  //  border: 2px solid  red;
+  //}
+  //&__section{
+    //background-color: #fff;
+    //border-radius: variables.$border-radius;
+    //border: 1px solid variables.$very-light-gray;
+    //padding: 2rem;
+  //}
+  @media all and (min-width: variables.$desktop-view){
+    margin: min(16rem, 15%) auto 0;
+    //max-width: max(45rem, 45%);
+    max-width: 55rem;
+
+  }
+}
+

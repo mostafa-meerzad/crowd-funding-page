@@ -1,0 +1,92 @@
+@use "./variables";
+@use "./mixins";
+
+.products{
+@include mixins.section;
+  &__desc{
+    @include mixins.description;
+  }
+}
+.product{
+border: 1px solid variables.$very-light-gray;
+  border-radius: variables.$border-radius;
+//@include mixins.section
+  //transition: all 3s ease;
+//  padding: 0 2rem 2rem;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  background-color: #fff;
+
+  &__name{
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  &__price{
+    color: variables.$moderate-cyan;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: .5rem 0 0 ;
+  }
+  &__desc{
+    @include mixins.description
+  }
+
+  &__left{
+    font-size: 1.2rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    //justify-content: center;
+    color: variables.$light-gray;
+    &--value{
+      font-size: 2rem;
+      font-weight: 700;
+      color: variables.$black;
+
+    }
+  }
+  &__btn{
+    @include mixins.button
+  }
+
+  &.disable{
+    //background-color: red;
+    &::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #fff8;
+      z-index: 1;
+    }
+    .product__btn{
+      background-color: variables.$dark-gray;
+    }
+  }
+}
+
+//.disable{
+//  //background-color: red;
+//  &:before{
+//    content: "";
+//    inset: 0;
+//    position: absolute;
+//    background-color: #ddd6;
+//    z-index: 10;
+//  }
+//}
+
+//.product.disable{
+//  //background-color: red;
+//  &::before{
+//    content: '';
+//    position: absolute;
+//    inset: 0;
+//    background-color: #fff8;
+//    z-index: 1;
+//  }
+//  .product__btn{
+//    background-color: variables.$dark-gray;
+//  }
+//}

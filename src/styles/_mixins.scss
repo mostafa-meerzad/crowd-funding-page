@@ -1,0 +1,47 @@
+@use "./variables";
+@mixin description{
+  color: variables.$light-gray;
+  line-height: 1.7rem;
+  //color:#000;
+  //font-weight: 500;
+  //outline: 1px solid red;
+  //width: 90%;
+  //background-color: #fff;
+
+}
+
+@mixin section{
+  padding: max(2rem, 10%) max(8%, 1.5rem);
+  //padding: 0 1.5rem 2rem;
+  background-color: #fff;
+  border-radius: variables.$border-radius;
+  border: 1px solid variables.$very-light-gray;
+  @media all and (min-width: variables.$desktop-view) {
+
+
+  }
+;
+}
+
+@mixin button{
+  border-radius: 4rem;
+  width:auto;
+  min-width: 12rem;
+  height: 3rem;
+  padding: 0 2rem;
+  margin: 0;
+  //padding: 0;
+  border: none;
+  outline: none;
+  background-color: variables.$moderate-cyan;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover{
+    background-color: variables.$dark-cyan;
+  }
+@media all and (min-width: variables.$desktop-view){
+  //font-weight
+}
+}

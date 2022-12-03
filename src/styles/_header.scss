@@ -1,0 +1,125 @@
+@use "./variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: max(2rem, 6vw) max(8vw, 2.2rem);
+  z-index: 10;
+  //padding: 2.8rem 12.2vmin;
+  //text-align: c;
+  //align-items: center;
+  //border: 4px solid ;
+  &__logo {
+    width: auto;
+    height: 5vmin;
+    max-height: 1.5rem;
+
+    //height: max(1.8rem, 4.7vmin);
+    //margin: 0;
+    //width: 40px;
+  }
+
+&__menu-icon{
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  &__close,&__open{
+    //width: 1.4rem;
+    //height: 1.4rem;
+    width: 4.2vmin;
+    height: 4.2vmin;
+    max-width: 1.8rem;
+    max-height: 1.8rem;
+    //fill:white;
+    //opacity: 1;
+    //outline: 2px solid red;
+    & svg{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__close{
+    position: absolute;
+  }
+
+  &__menu {
+    position: absolute;
+    background-color: #fff;
+    font-size: 1.1rem;
+    width: 87%;
+    //margin: max(15%, 10rem) auto;
+    margin: 15% auto;
+    left: 0;
+    right: 0;
+    max-width: variables.$max-width;
+    //justify-self: center;
+
+    //left: 50%;
+    //translate(-50%);
+    border-radius: variables.$border-radius;
+    z-index: 1;
+    //display: none;
+
+  }
+
+  &__menu-option {
+    padding: 1.5rem;
+    cursor:pointer;
+    transition: scale 150ms ease;
+    //adding active animation in css because adding it with framer-motion looks really hard
+    &:active, &:focus{
+      scale:.98
+    }
+
+    &:nth-child(1), &:nth-child(2) {
+      box-shadow: 0 2px 1px variables.$very-light-gray ;
+      //border-bottom: 1px solid variables.$Light-gray;
+    }
+  }
+
+  @media all and (min-width: variables.$desktop-view) {
+    display: flex;
+    align-items: center;
+    //margin: 0;
+    //padding-top:  4rem;
+    padding: max(2rem, 2vw) max(10vw, 2.2rem);
+    max-width: max(100rem, 60%);
+    //max-width: 110rem;
+    margin: auto;
+
+
+    &__menu-icon{
+      display: none;
+    }
+
+    &__menu{
+      position: relative;
+      width: auto;
+      left: auto;
+      right: auto;
+      margin:0;
+      top: 0;
+      //flex-direction: row;
+      display: flex;
+      //padding: 0;
+      background-color: transparent;
+      color: white;
+    }
+    &__menu-option{
+      //outline: 2px solid red;
+      padding: .8rem;
+      &:nth-child(1), &:nth-child(2) {
+        box-shadow:none ;
+        //border-bottom: 1px solid variables.$Light-gray;
+      }
+
+      &:active{
+        scale:.9
+      }
+
+    }
+  }
+}
+

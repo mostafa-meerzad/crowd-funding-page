@@ -10,9 +10,6 @@
 .product{
 border: 1px solid variables.$very-light-gray;
   border-radius: variables.$border-radius;
-//@include mixins.section
-  //transition: all 3s ease;
-//  padding: 0 2rem 2rem;
   padding: 1.5rem;
   margin: 1.5rem auto;
   background-color: #fff;
@@ -38,8 +35,8 @@ border: 1px solid variables.$very-light-gray;
     display: flex;
     align-items: center;
     gap: .5rem;
-    //justify-content: center;
     color: variables.$light-gray;
+    margin: 0 ;
     &--value{
       font-size: 2rem;
       font-weight: 700;
@@ -48,11 +45,11 @@ border: 1px solid variables.$very-light-gray;
     }
   }
   &__btn{
-    @include mixins.button
+    @include mixins.button;
+margin-top:1.5rem
   }
 
   &.disable{
-    //background-color: red;
     &::before{
       content: '';
       position: absolute;
@@ -66,27 +63,3 @@ border: 1px solid variables.$very-light-gray;
   }
 }
 
-//.disable{
-//  //background-color: red;
-//  &:before{
-//    content: "";
-//    inset: 0;
-//    position: absolute;
-//    background-color: #ddd6;
-//    z-index: 10;
-//  }
-//}
-
-//.product.disable{
-//  //background-color: red;
-//  &::before{
-//    content: '';
-//    position: absolute;
-//    inset: 0;
-//    background-color: #fff8;
-//    z-index: 1;
-//  }
-//  .product__btn{
-//    background-color: variables.$dark-gray;
-//  }
-//}

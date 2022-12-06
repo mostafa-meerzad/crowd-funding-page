@@ -1,0 +1,285 @@
+@use "variables";
+@use "mixins";
+
+.backing-products {
+  position: absolute;
+  background-color: #fff;
+  border-radius: variables.$border-radius;
+  padding: 1.5rem;
+  width: 100%;
+  font-size: 0.9rem;
+  top: -4%;
+  z-index: 10;
+  @include mixins.description;
+
+  &__title {
+    font-size: 1.2rem;
+    color: black;
+  }
+
+  &__desc {
+    color: variables.$light-gray;
+  }
+  &__close {
+    position: absolute;
+    top: 1.3rem;
+    right: 1.3rem;
+    path {
+      fill: black;
+    }
+  }
+
+  &__product {
+    border: 2px solid variables.$very-light-gray;
+    border-radius: variables.$border-radius;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+
+    &-indicator {
+      width: 1.5rem;
+      height: 1.5rem;
+      grid-column: 1/2;
+      grid-row: 1/3;
+      align-self: center;
+      margin: 0;
+      #inner {
+        fill: transparent;
+        transition: all 100ms ease-in-out;
+      }
+      #outer {
+        stroke-width: 2px;
+      }
+    }
+
+    &-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: black;
+      grid-column: 1/4;
+      grid-row: 1/2;
+      padding: 0;
+      margin: 0 0 0.2rem 2.3rem;
+    }
+    &-price {
+      color: variables.$moderate-cyan;
+      font-weight: 700;
+      font-size: 0.9rem;
+      grid-column: 1/4;
+      grid-row: 2/3;
+      padding: 0;
+      margin: 0 0 0 2.3rem;
+    }
+
+    &-desc {
+      @include mixins.description;
+      grid-column: 1/4;
+      grid-row: 3/4;
+      margin: 1.3rem 0 1.7rem 0;
+    }
+    &-left {
+      color: variables.$light-gray;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      column-gap: 0.3rem;
+      font-weight: 400;
+      margin: 0;
+
+      grid-column: 1/3;
+      grid-row: 4/5;
+      &--value {
+        color: black;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+
+    &-label {
+      grid-column: 1/3;
+      grid-row: 1/2;
+      justify-self: center;
+    }
+
+    &-price-to-pay,
+    &-continue {
+      min-width: 4rem;
+      width: 25vw;
+      max-width: 9rem;
+      height: 2.6rem;
+      text-align: center;
+      align-self: center;
+      justify-self: center;
+      border-radius: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.2rem;
+      border: 2px solid variables.$moderate-cyan;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    &-price-to-pay {
+      & svg {
+        width: 0.5rem;
+        height: autos;
+        fill: variables.$light-gray;
+      }
+
+      & [type="number"] {
+        width: 40%;
+        border: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid variables.$moderate-cyan;
+        }
+      }
+
+      grid-column: 1/2;
+      grid-row: 2/3;
+      &:focus {
+        outline-color: variables.$dark-cyan;
+      }
+    }
+
+    &-continue {
+      grid-column: 2/3;
+      grid-row: 2/3;
+      background-color: variables.$moderate-cyan;
+      color: white;
+    }
+
+    &.disable {
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #ffffff88;
+        z-index: 1;
+      }
+     
+    }
+
+    @media all and (min-width:variables.$desktop-view) {
+    
+    &-indicator{
+      grid-column: 1/2;
+      // width: fit-content;
+      grid-row: 1/2;
+
+    }
+    &-name{
+      grid-column: 2/3;
+      grid-row: 1/2;
+      justify-self: start;
+      padding: 0;
+      margin: 0;
+      width: max-content;
+
+    }
+    &-price{
+      grid-column: 3/4;
+      grid-row: 1/2;
+
+      justify-self: start;
+      padding: 0;
+      margin: 0;
+      width: max-content;
+
+    }
+    &-left{
+      grid-column: 5/6;
+      grid-row: 1/2;
+      width: max-content;
+
+    }
+    &-desc{
+      grid-column: 2/6;
+      grid-row: 2/3;
+      margin: 0;
+
+
+    }
+    &-label{
+      grid-column: 1/2;
+      margin: 0;
+      grid-row: 1/2;
+      width: max-content;
+      align-self: center;
+      font-size: 1rem;
+    }
+    &-price-to-pay{
+      grid-column: 3/4;
+      grid-row: 1/2;
+    }
+    &-continue{
+      grid-column: 4/5;
+      grid-row: 1/2;
+    }
+    }
+  }
+}
+
+.backing-products__product {
+  transition: all 100ms ease-in-out;
+  &-overview {
+    display: grid;
+    margin: 0 0 1rem 0;
+
+    @media all and (min-width:variables.$desktop-view) {
+      grid-template-columns: repeat(3, min-content) 1fr min-content;
+      gap: 1rem;
+    }
+  }
+
+  &-pricing {
+    animation: toggle 150ms ease-in-out;
+    display: grid;
+    gap: 1rem;
+    padding-top: 1rem;
+
+    @media all and (min-width:variables.$desktop-view) {
+      grid-template-columns: min-content 1fr min-content min-content;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: calc(100% + 3rem);
+      justify-self: center;
+      height: 2px;
+      background-color: variables.$very-light-gray;
+    }
+  }
+
+  &-pricing[hidden] {
+    display: none;
+  }
+
+  &--active {
+    border: 2px solid variables.$moderate-cyan;
+  }
+  &--active &-indicator {
+    #inner {
+      fill: variables.$moderate-cyan;
+    }
+  }
+  &--active &-overview {
+    margin-bottom: 2rem;
+  }
+
+
+}
+
+
+@keyframes toggle {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
